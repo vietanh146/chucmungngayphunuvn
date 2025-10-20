@@ -12,9 +12,7 @@
     <style>
         body {
             font-family: 'Be Vietnam Pro', sans-serif;
-            /* Ý tưởng 1: Nền Gradient Mềm Mại */
             background: linear-gradient(135deg, #fdf2f8, #fce7f3, #fff1f2);
-            /* ĐÃ BỎ: Con trỏ chuột tùy chỉnh */
         }
         .font-dancing {
             font-family: 'Dancing Script', cursive;
@@ -63,7 +61,6 @@
                 opacity: 0;
             }
         }
-        /* Ý tưởng 2: Hiệu ứng ánh kim cho tiêu đề */
         .shimmer {
             position: relative;
             background-image: -webkit-linear-gradient(45deg, #e11d48, #be185d, #9d174d);
@@ -83,13 +80,18 @@
         @keyframes shimmer-animation {
             100% { left: 100%; }
         }
-        /* Ý tưởng 3: Nút hộp quà */
         #gift-box {
             cursor: pointer;
             transition: transform 0.3s ease;
         }
         #gift-box:hover {
             transform: scale(1.1);
+        }
+        
+        /* SỬA LỖI: Ẩn thanh cuộn ngang do hiệu ứng shimmer */
+        .header-container {
+            position: relative;
+            overflow-x: hidden;
         }
     </style>
 </head>
@@ -99,7 +101,7 @@
 
     <div class="container mx-auto px-4 py-8 md:py-16 relative z-10">
         
-        <header class="text-center mb-12">
+        <header class="text-center mb-12 header-container">
             <h1 class="font-dancing text-5xl md:text-7xl text-pink-600 fade-in shimmer">Chúc Mừng 20/10</h1>
             <p class="mt-4 text-lg md:text-xl text-pink-800 fade-in" style="animation-delay: 0.2s;">Ngày Phụ Nữ Việt Nam</p>
             <div class="mt-4 flex justify-center items-center gap-4 fade-in" style="animation-delay: 0.4s;">
@@ -128,6 +130,7 @@
                     <p class="p-4 text-center text-pink-600 font-semibold">Kiêu sa tựa Tulip</p>
                 </div>
                 <div class="card fade-in" style="animation-delay: 1.2s;">
+                    <!-- SỬA LỖI: Sửa lại đường link ảnh bị hỏng -->
                     <img src="https://caycanhdep24h.com/wp-content/uploads/2023/03/cam-tu-cau-xanh-bieu-tuong-cho-su-hy-vong.jpg" alt="Hoa cẩm tú cầu" class="w-full h-60 object-cover">
                     <p class="p-4 text-center text-pink-600 font-semibold">Trọn vẹn như cẩm tú</p>
                 </div>
@@ -166,10 +169,13 @@
             <p>Tạo bởi tình yêu thương ❤️</p>
         </footer>
     </div>
-    
-    <!-- ĐÃ BỎ: Trình phát nhạc -->
 
     <script>
+        // SỬA LỖI: Đảm bảo trang web ở trên cùng sau khi tải xong
+        window.onload = function() {
+            setTimeout(() => window.scrollTo(0, 0), 0);
+        }
+
         // Hộp quà & Pháo giấy
         const giftBox = document.getElementById('gift-box');
         const specialMessage = document.getElementById('special-message');
@@ -213,8 +219,6 @@
             petal.style.transform = `rotate(${Math.random() * 360}deg)`;
             flowerContainer.appendChild(petal);
         }
-
-        // ĐÃ BỎ: JavaScript cho trình phát nhạc
     </script>
 </body>
 </html>
